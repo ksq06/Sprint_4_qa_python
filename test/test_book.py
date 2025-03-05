@@ -1,8 +1,7 @@
-import random
 import pytest
 
 from main import BooksCollector
-from data import BOOKS
+from test.data import BOOKS
 
 class TestBooksCollector:
 
@@ -12,7 +11,7 @@ class TestBooksCollector:
         collector.add_new_book('Гордость и предубеждение и зомби')
         collector.add_new_book('Что делать, если ваш кот хочет вас убить')
 
-        assert len(collector.get_books_rating()) == 2
+        assert len(collector.books_genre) == 2
 
     @pytest.mark.parametrize("book", ["", "А" * 41])
     def test_add_new_book_invalid_length(self, books_collector, book):
@@ -32,10 +31,11 @@ class TestBooksCollector:
         assert 'Незнайка на Луне' in books_collector.get_books_genre()
 
     def test_books_genre_fav_dict_is_empty(self, books_collector):
-        assert books_collector.books_genre == {} and books_collector.favorites == set()
+        assert books_collector.books_genre == {}
+        assert books_collector.favorites == []
 
     def test_genre_list_is_not_empty(self, books_collector):
-        assert books_collector.allowed_genres == ['Фантастика', 'Ужасы', 'Детективы', 'Мультфильмы', 'Комедии']
+        assert books_collector.genre == ['Фантастика', 'Ужасы', 'Детективы', 'Мультфильмы', 'Комедии']
 
     def test_genre_age_rating_list_is_not_empty(self, books_collector):
         assert books_collector.genre_age_rating == ['Ужасы', 'Детективы']
