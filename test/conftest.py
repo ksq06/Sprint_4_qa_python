@@ -8,3 +8,7 @@ def books_collector():
     books_collector = BooksCollector()
 
     return books_collector
+
+@pytest.fixture
+def book():
+    return "Несуществующая книга"
