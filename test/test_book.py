@@ -95,6 +95,8 @@ class TestBooksCollector:
             books_collector.add_book_in_favorites(name)
         favorites = books_collector.get_list_of_favorites_books()
         assert len(favorites) > 0
+        for name, _ in BOOKS[:3]:
+            assert name in favorites
 
     def test_get_list_of_favorites_books_empty_list(self, books_collector):
         name = BOOKS[4][0]
