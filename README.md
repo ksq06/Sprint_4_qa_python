@@ -1,5 +1,6 @@
 # Sprint_4_qa_python
 Описание тестовых функций для класса BooksCollector
+develop
 1. Проверка добавления книг
 - Тест test_add_new_book_add_two_books:
 Проверяет, что книги добавляются в коллекцию.
@@ -54,3 +55,4 @@
 
 - Тест test_get_list_of_favorites_books_empty_list:
 Проверяет, что список избранных книг пуст после удаления всех книг.
+main
